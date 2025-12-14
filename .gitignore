@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Neovim
+nvim/.netrwhist
+nvim/sessions/
+
+# Temporary files
+*.swp
+*.swo
+*~
+.*.sw?
