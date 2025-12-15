@@ -5,6 +5,7 @@ local autopairs = {
   ['"'] = '"',
   ["'"] = "'",
   ['`'] = '`',
+  ['<'] = '>',
 }
 
 for open, close in pairs(autopairs) do

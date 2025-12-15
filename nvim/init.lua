@@ -9,8 +9,10 @@ require("config.terminal")
 require("config.autoclose")
 require("config.session")
 require("config.explorer")
+require("config.windows")
 
 -- Netrw (file tree) settings
+vim.o.number = true
 vim.g.netrw_banner = 0    -- Hide banner
 vim.g.netrw_liststyle = 3 -- Tree view
 vim.g.netrw_winsize = 25  -- Width of explorer (25%)
@@ -42,3 +44,39 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
   end,
 })
+
+-- Disable error bells
+vim.opt.errorbells = false
+vim.opt.visualbell = true
+
+-- Show which line your cursor is on
+vim.o.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.o.scrolloff = 20
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+vim.o.inccommand = 'split'
+
+vim.o.confirm = true
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- Move lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
