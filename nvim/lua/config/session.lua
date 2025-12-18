@@ -35,4 +35,4 @@ vim.api.nvim_create_autocmd('VimEnter', {
 vim.keymap.set('n', '<leader>sd', function()
   os.remove(get_session_file())
   print('Session deleted')
-end)
+end, { desc = 'Delete session' })

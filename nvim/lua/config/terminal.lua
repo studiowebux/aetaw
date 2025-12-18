@@ -35,9 +35,5 @@ local function toggle_terminal()
 	vim.cmd('startinsert')
 end
 
--- Keybinding: Cmd+J (on macOS, this is D-j, but terminals usually can't detect Cmd)
--- Use Ctrl+J instead
-vim.keymap.set({ 'n', 't' }, '<C-j>', toggle_terminal)
-
--- Exit terminal mode with Esc
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set({ 'n', 't' }, '<C-j>', toggle_terminal, { desc = 'Toggle terminal' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })

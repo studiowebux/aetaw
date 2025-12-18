@@ -1,31 +1,28 @@
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
--- Accept completion with Enter
 vim.keymap.set('i', '<CR>', function()
 	if vim.fn.pumvisible() == 1 then
 		return vim.fn.complete_info()['selected'] ~= -1 and '<C-y>' or '<C-e><CR>'
 	else
 		return '<CR>'
 	end
-end, { expr = true })
+end, { expr = true, desc = 'Accept completion' })
 
--- Accept completion with Tab (optional)
 vim.keymap.set('i', '<Tab>', function()
 	if vim.fn.pumvisible() == 1 then
 		return '<C-n>'
 	else
 		return '<Tab>'
 	end
-end, { expr = true })
+end, { expr = true, desc = 'Next completion' })
 
--- Shift-Tab to go backwards
 vim.keymap.set('i', '<S-Tab>', function()
 	if vim.fn.pumvisible() == 1 then
 		return '<C-p>'
 	else
 		return '<S-Tab>'
 	end
-end, { expr = true })
+end, { expr = true, desc = 'Previous completion' })
 
 -- Auto-trigger completion popup
 vim.api.nvim_create_autocmd('LspAttach', {

@@ -6,7 +6,6 @@ require("config.lsp")
 require("config.completion")
 require("config.telescope")
 require("config.terminal")
-require("config.autoclose")
 require("config.session")
 require("config.explorer")
 require("config.windows")
@@ -80,3 +79,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+vim.keymap.set("n", "<leader>T", ":TodoQuickFix<CR>", { desc = "Show all todos in quickfix list" })

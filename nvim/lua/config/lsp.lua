@@ -72,17 +72,17 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Keybindings for LSP
 --
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Go to references' })
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
 vim.keymap.set('n', '<leader>bf', vim.lsp.buf.format, { desc = 'Format buffer' })
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)       -- Go to declaration
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)    -- Go to implementation
-vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)   -- Go to type definition
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help) -- Show function signature
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation' })
+vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { desc = 'Go to type definition' })
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature help' })
 
 vim.diagnostic.config({
   virtual_text = true,      -- Show errors at end of line
@@ -94,8 +94,8 @@ vim.diagnostic.config({
 vim.diagnostic.config({
   virtual_text = { prefix = '●', spacing = 2 },
 })
-vim.keymap.set('n', '<leader>D', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>lo', ':lopen<CR>')
-vim.keymap.set('n', '<leader>lc', ':lclose<CR>')
-vim.keymap.set('n', '[l', ':lprev<CR>')
-vim.keymap.set('n', ']l', ':lnext<CR>')
+vim.keymap.set('n', '<leader>D', vim.diagnostic.setloclist, { desc = 'Set location list' })
+vim.keymap.set('n', '<leader>lo', ':lopen<CR>', { desc = 'Open location list' })
+vim.keymap.set('n', '<leader>lc', ':lclose<CR>', { desc = 'Close location list' })
+vim.keymap.set('n', '[l', ':lprev<CR>', { desc = 'Previous location' })
+vim.keymap.set('n', ']l', ':lnext<CR>', { desc = 'Next location' })
