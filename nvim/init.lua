@@ -9,6 +9,7 @@ require("config.terminal")
 require("config.session")
 require("config.explorer")
 require("config.windows")
+require("config.help")
 
 -- Netrw (file tree) settings
 vim.o.number = true
@@ -89,3 +90,6 @@ vim.keymap.set("n", "[t", function()
 end, { desc = "Previous todo comment" })
 
 vim.keymap.set("n", "<leader>T", ":TodoQuickFix<CR>", { desc = "Show all todos in quickfix list" })
+
+-- Global help
+vim.keymap.set('n', '<leader>?', function() require('config.help').show() end, { desc = 'Show help' })
