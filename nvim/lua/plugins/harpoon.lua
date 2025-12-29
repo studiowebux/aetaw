@@ -44,7 +44,7 @@ return {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end, { desc = "Open quick menu" })
 
-      local keys = { "a", "s", "d", "f", "g", "h", "j", "k", "l", ";" }
+      local keys = { "a", "s", "d", "f", "j", "k", "l", ";" }
       for idx, key in pairs(keys) do
         vim.keymap.set("n", "<leader>h" .. key, function()
           harpoon:list():select(idx)

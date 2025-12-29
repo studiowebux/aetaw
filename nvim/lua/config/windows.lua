@@ -22,8 +22,8 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
 -- Split Creation
 -- ============================================
 
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Vertical split' })
-vim.keymap.set('n', '<leader>h', ':split<CR>', { desc = 'Horizontal split' })
+vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { desc = 'Split vertical' })
+vim.keymap.set('n', '<leader>sh', ':split<CR>', { desc = 'Split horizontal' })
 
 -- ============================================
 -- Split Closing
